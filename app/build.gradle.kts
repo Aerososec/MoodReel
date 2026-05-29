@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.example.moodreel"
+    namespace = "com.moodreel.app"
 
     defaultConfig {
-        applicationId = "com.example.moodreel"
+        applicationId = "com.moodreel.app"
         versionCode = 1
         versionName = "1.0"
 

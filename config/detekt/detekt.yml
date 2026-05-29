@@ -25,6 +25,11 @@ complexity:
 
 style:
   active: true
+  UnusedPrivateMember:
+    active: true
+    ignoreAnnotated:
+      - 'Preview'
+      - 'PreviewParameter'
   MaxLineLength:
     active: true
     maxLineLength: 120
