@@ -1,7 +1,23 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.moodreel.android.application)
     alias(libs.plugins.kotlin.compose)
 }
+
+// Загружаем local.properties в начале файла
+val localProperties = Properties().apply {
+    val localPropertiesFile = rootProject.file("local.properties")
+    if (localPropertiesFile.exists()) {
+        load(FileInputStream(localPropertiesFile))
+    }
+}
+
+// Получаем токен. Если в local.properties его нет — читаем из env (для CI)
+val tmdbApiToken: String = localProperties.getProperty("TMDB_API_TOKEN")
+    ?: System.getenv("TMDB_API_TOKEN")
+    ?: ""
 
 android {
     namespace = "com.moodreel.app"
@@ -12,6 +28,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "TMDB_API_TOKEN", "\"$tmdbApiToken\"")
     }
 
     buildTypes {
@@ -26,6 +44,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
