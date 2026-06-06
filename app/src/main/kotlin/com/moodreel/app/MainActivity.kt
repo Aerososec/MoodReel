@@ -30,7 +30,9 @@ import com.moodreel.core.ui.chip.MoodReelEmotionChip
 import com.moodreel.core.ui.input.MoodReelTextField
 import com.moodreel.core.ui.state.MoodReelEmptyState
 import com.moodreel.core.ui.topbar.MoodReelTopBar
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

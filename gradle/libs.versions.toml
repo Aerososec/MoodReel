@@ -21,6 +21,10 @@ compileSdk = "36"
 minSdk = "26"
 targetSdk = "36"
 javaVersion = "17"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
+kotlinx-serialization = "1.7.3"
+retrofit-kotlinx-serialization = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -56,6 +60,11 @@ hilt-gradlePlugin = { group = "com.google.dagger", name = "hilt-android-gradle-p
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit-kotlinx-serialization" }
+okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 
 [bundles]
 compose-ui = [
@@ -88,6 +97,14 @@ testing-compose = [
     "androidx-compose-ui-test-junit4"
 ]
 
+network = [
+    "retrofit-core",
+    "retrofit-kotlinx-serialization",
+    "okhttp-core",
+    "okhttp-logging",
+    "kotlinx-serialization-json"
+]
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
@@ -103,3 +120,4 @@ moodreel-android-feature = { id = "moodreel.android.feature", version = "unspeci
 moodreel-android-hilt = { id = "moodreel.android.hilt", version = "unspecified" }
 moodreel-jvm-library = { id = "moodreel.jvm.library", version = "unspecified" }
 moodreel-detekt = { id = "moodreel.detekt", version = "unspecified" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

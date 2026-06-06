@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.moodreel.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.moodreel.android.hilt)
 }
 
 // Загружаем local.properties в начале файла
@@ -69,5 +70,6 @@ dependencies {
 
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
+    implementation(project(":data:tmdb"))
 
 }

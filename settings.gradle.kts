@@ -29,6 +29,7 @@ include(":core:common")
 include(":core:model")
 include(":core:designsystem")
 include(":core:ui")
+include(":data:tmdb")
 
 // Feature modules
 include(":feature:home")
