@@ -30,6 +30,7 @@ include(":core:model")
 include(":core:designsystem")
 include(":core:ui")
 include(":data:tmdb")
+include(":core:domain")
 
 // Feature modules
 include(":feature:home")

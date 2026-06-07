@@ -1,7 +1,7 @@
 package com.moodreel.core.model
 
 data class Movie(
-    val id: MovieId,
+    val id: MediaId,
     val title: String,
     val mediaType: MediaType,
     val posterUrl: String?,
