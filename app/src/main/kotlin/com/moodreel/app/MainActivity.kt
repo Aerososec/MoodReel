@@ -13,7 +13,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.SearchOff
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,7 +28,7 @@ import com.moodreel.core.ui.card.MoodReelCard
 import com.moodreel.core.ui.chip.MoodReelEmotionChip
 import com.moodreel.core.ui.input.MoodReelTextField
 import com.moodreel.core.ui.state.MoodReelEmptyState
-import com.moodreel.core.ui.topbar.MoodReelTopBar
+import com.moodreel.feature.search.presentation.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,14 +38,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MoodReelTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    topBar = {
-                        MoodReelTopBar(title = "MoodReel")
+                SearchScreen(
+                    onNavigateToDetails = { mediaId ->
+                        // TODO: навигация на экран деталей будет в шаге 2.6
+                        // Пока что просто placeholder
                     },
-                ) { innerPadding ->
-                    Showcase(modifier = Modifier.padding(innerPadding))
-                }
+                    modifier = Modifier.fillMaxSize(),
+                )
             }
         }
     }

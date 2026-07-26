@@ -70,6 +70,7 @@ dependencies {
 
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
+    implementation(project(":core:model"))
     implementation(project(":data:tmdb"))
-
+    implementation(project(":feature:search"))
 }

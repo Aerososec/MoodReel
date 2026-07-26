@@ -13,6 +13,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply("moodreel.android.library")
             // Применяем Hilt-плагин (создадим следующим)
             pluginManager.apply("moodreel.android.hilt")
+            pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
             // Настраиваем Compose
             extensions.configure<LibraryExtension> {

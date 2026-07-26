@@ -26,6 +26,7 @@ okhttp = "4.12.0"
 kotlinx-serialization = "1.7.3"
 retrofit-kotlinx-serialization = "1.0.0"
 javax-inject = "1"
+coil = "3.0.4"
 
 [libraries]
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javax-inject" }
@@ -67,6 +68,8 @@ retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "r
 okhttp-core = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 [bundles]
 compose-ui = [
@@ -74,7 +77,8 @@ compose-ui = [
     "androidx-compose-ui-graphics",
     "androidx-compose-ui-tooling-preview",
     "androidx-compose-material3",
-    "androidx-activity-compose"
+    "androidx-activity-compose",
+    "androidx-compose-material-icons-extended"
 ]
 
 lifecycle = [

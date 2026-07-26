@@ -31,6 +31,7 @@ include(":core:designsystem")
 include(":core:ui")
 include(":data:tmdb")
 include(":core:domain")
+include(":feature:search")
 
 // Feature modules
 include(":feature:home")
