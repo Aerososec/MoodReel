@@ -3,6 +3,7 @@ package com.moodreel.data.tmdb
 import com.moodreel.core.common.error.AppException
 import com.moodreel.core.domain.repository.MovieRepository
 import com.moodreel.core.model.MediaId
+import com.moodreel.core.model.MediaType
 import com.moodreel.core.model.Movie
 import com.moodreel.core.model.MovieDetails
 import com.moodreel.data.tmdb.mapper.toDomain
@@ -21,17 +22,16 @@ internal class MovieRepositoryImpl @Inject constructor(private val tmdbApi: Tmdb
         }
     }
 
-    override suspend fun getMovieDetails(id: MediaId): MovieDetails {
+    override suspend fun getDetails(
+        id: MediaId,
+        type: MediaType
+    ): MovieDetails =
         executeNetworkCall {
-            return tmdbApi.getMovieDetails(movieId = id.value).toDomain()
+            when (type) {
+                MediaType.MOVIE -> tmdbApi.getMovieDetails(movieId = id.value).toDomain()
+                MediaType.TV_SERIES -> tmdbApi.getTvShowDetails(tvId = id.value).toDomain()
+            }
         }
-    }
-
-    override suspend fun getTvShowDetails(id: MediaId): MovieDetails {
-        executeNetworkCall {
-            return tmdbApi.getTvShowDetails(tvId = id.value).toDomain()
-        }
-    }
 
     private inline fun <T> executeNetworkCall(block: () -> T): T =
         try {

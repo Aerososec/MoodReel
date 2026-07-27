@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.moodreel.core.model.MediaId
+import com.moodreel.core.model.MediaType
 import com.moodreel.feature.search.presentation.components.SearchContent
 import com.moodreel.feature.search.presentation.components.SearchTopBar
 
@@ -21,7 +22,7 @@ import com.moodreel.feature.search.presentation.components.SearchTopBar
 fun SearchScreen(
     modifier: Modifier = Modifier,
     viewModel: SearchViewModel = hiltViewModel(),
-    onNavigateToDetails: (MediaId) -> Unit
+    onNavigateToDetails: (MediaId, MediaType) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val snackBarHostState = remember { SnackbarHostState() }
@@ -30,7 +31,7 @@ fun SearchScreen(
         viewModel.sideEffects.collect { effect ->
             when (effect) {
                 is SearchSideEffect.NavigateToDetails -> {
-                    onNavigateToDetails(effect.id)
+                    onNavigateToDetails(effect.id, effect.type)
                 }
 
                 is SearchSideEffect.ShowError -> {
@@ -45,7 +46,7 @@ fun SearchScreen(
         snackbarHost = { SnackbarHost(hostState = snackBarHostState) }
     ) { innerPadding ->
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
@@ -56,7 +57,7 @@ fun SearchScreen(
             )
             SearchContent(
                 state = uiState,
-                onMovieClick = { viewModel.handleIntent(SearchIntent.MovieClicked(it)) },
+                onMovieClick = { viewModel.handleIntent(SearchIntent.MovieClicked(it.id, it.mediaType)) },
                 onRetry = { viewModel.handleIntent(SearchIntent.RetryClicked) },
                 modifier = Modifier.fillMaxSize()
             )

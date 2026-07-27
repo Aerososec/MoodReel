@@ -10,14 +10,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.moodreel.core.designsystem.theme.MoodReelTheme
-import com.moodreel.core.model.MediaId
 import com.moodreel.core.model.Movie
 import com.moodreel.feature.search.presentation.SearchUiState
 
 @Composable
 fun SearchContent(
     state: SearchUiState,
-    onMovieClick: (MediaId) -> Unit,
+    onMovieClick: (Movie) -> Unit,
     onRetry: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -58,13 +57,12 @@ fun SearchContent(
 }
 
 @Composable
-private fun LoadingIndicator(modifier: Modifier) {
+private fun LoadingIndicator(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         CircularProgressIndicator(
-            modifier = modifier,
             color = MoodReelTheme.colors.primary
         )
     }
@@ -73,7 +71,7 @@ private fun LoadingIndicator(modifier: Modifier) {
 @Composable
 private fun MovieList(
     movies: List<Movie>,
-    onMovieClick: (MediaId) -> Unit,
+    onMovieClick: (Movie) -> Unit,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -88,10 +86,9 @@ private fun MovieList(
             key = { movie -> movie.id.value }
         ) { movie ->
             MovieListItem(
-                movie = movie,
-                modifier = modifier
+                movie = movie
             ) {
-                onMovieClick(movie.id)
+                onMovieClick(movie)
             }
         }
     }

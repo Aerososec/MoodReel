@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.moodreel.core.common.error.AppException
 import com.moodreel.core.domain.usecase.SearchMoviesUseCase
 import com.moodreel.core.model.MediaId
+import com.moodreel.core.model.MediaType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
@@ -42,7 +43,7 @@ class SearchViewModel @Inject constructor(
     fun handleIntent(intent: SearchIntent) {
         when (intent) {
             SearchIntent.ClearTitle -> clearTitle()
-            is SearchIntent.MovieClicked -> movieClicked(intent.id)
+            is SearchIntent.MovieClicked -> movieClicked(intent.id, intent.type)
             SearchIntent.RetryClicked -> retryClicked()
             is SearchIntent.TitleChanged -> titleChanged(intent.title)
         }
@@ -53,9 +54,9 @@ class SearchViewModel @Inject constructor(
         _uiState.value = SearchUiState()
     }
 
-    private fun movieClicked(id: MediaId) {
+    private fun movieClicked(id: MediaId, type: MediaType) {
         viewModelScope.launch {
-            _sideEffects.send(SearchSideEffect.NavigateToDetails(id))
+            _sideEffects.send(SearchSideEffect.NavigateToDetails(id, type))
         }
     }
 

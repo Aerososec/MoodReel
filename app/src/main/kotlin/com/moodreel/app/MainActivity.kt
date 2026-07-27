@@ -39,9 +39,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MoodReelTheme {
                 SearchScreen(
-                    onNavigateToDetails = { mediaId ->
-                        // TODO: навигация на экран деталей будет в шаге 2.6
-                        // Пока что просто placeholder
+                    onNavigateToDetails = { mediaId, mediaType ->
+                        android.util.Log.d("MoodReelTest", "id=${mediaId.value} type=$mediaType")
                     },
                     modifier = Modifier.fillMaxSize(),
                 )
