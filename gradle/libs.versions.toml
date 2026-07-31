@@ -27,6 +27,7 @@ kotlinx-serialization = "1.7.3"
 retrofit-kotlinx-serialization = "1.0.0"
 javax-inject = "1"
 coil = "3.0.4"
+nav3 = "1.1.0"
 
 [libraries]
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javax-inject" }
@@ -70,6 +71,9 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
+androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "nav3" }
+androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "nav3" }
+androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
 
 [bundles]
 compose-ui = [

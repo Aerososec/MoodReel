@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.moodreel.app.navigation.MoodReelNavDisplay
 import com.moodreel.core.designsystem.theme.MoodReelTheme
 import com.moodreel.core.ui.button.MoodReelButton
 import com.moodreel.core.ui.button.MoodReelTextButton
@@ -28,7 +29,6 @@ import com.moodreel.core.ui.card.MoodReelCard
 import com.moodreel.core.ui.chip.MoodReelEmotionChip
 import com.moodreel.core.ui.input.MoodReelTextField
 import com.moodreel.core.ui.state.MoodReelEmptyState
-import com.moodreel.feature.search.presentation.SearchScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,12 +38,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MoodReelTheme {
-                SearchScreen(
-                    onNavigateToDetails = { mediaId, mediaType ->
-                        android.util.Log.d("MoodReelTest", "id=${mediaId.value} type=$mediaType")
-                    },
-                    modifier = Modifier.fillMaxSize(),
-                )
+                MoodReelNavDisplay(modifier = Modifier.fillMaxSize())
             }
         }
     }

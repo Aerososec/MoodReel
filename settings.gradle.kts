@@ -32,6 +32,7 @@ include(":core:ui")
 include(":data:tmdb")
 include(":core:domain")
 include(":feature:search")
+include(":feature:details")
 
 // Feature modules
 include(":feature:home")

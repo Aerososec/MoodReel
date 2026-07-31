@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.moodreel.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.moodreel.android.hilt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 // Загружаем local.properties в начале файла
@@ -68,9 +69,17 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
+    // Навигация
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.hilt.navigation.compose)
+
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
     implementation(project(":core:model"))
     implementation(project(":data:tmdb"))
     implementation(project(":feature:search"))
+    implementation(project(":feature:details"))
 }

@@ -24,7 +24,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 // Все feature-модули используют общие штуки
                 "implementation"(libs.findBundle("lifecycle").get())
                 "implementation"(libs.findBundle("coroutines").get())
-                "implementation"(libs.findLibrary("androidx-navigation-compose").get())
                 "implementation"(libs.findLibrary("hilt-navigation-compose").get())
 
                 // Тесты
