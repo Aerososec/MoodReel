@@ -23,11 +23,14 @@ targetSdk = "36"
 javaVersion = "17"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
-kotlinx-serialization = "1.7.3"
+kotlinx-serialization = "1.8.1"
 retrofit-kotlinx-serialization = "1.0.0"
 javax-inject = "1"
 coil = "3.0.4"
 nav3 = "1.1.0"
+room = "2.8.4"
+appcompat = "1.7.1"
+material = "1.13.0"
 
 [libraries]
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javax-inject" }
@@ -74,6 +77,12 @@ coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp"
 androidx-navigation3-runtime = { group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "nav3" }
 androidx-navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "nav3" }
 androidx-lifecycle-viewmodel-navigation3 = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-gradlePlugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 compose-ui = [
@@ -131,3 +140,5 @@ moodreel-android-hilt = { id = "moodreel.android.hilt", version = "unspecified" 
 moodreel-jvm-library = { id = "moodreel.jvm.library", version = "unspecified" }
 moodreel-detekt = { id = "moodreel.detekt", version = "unspecified" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+room-gradlePlugin = { id = "androidx.room", version.ref = "room" }
+moodreel-android-room = { id = "moodreel.android.room", version = "unspecified" }

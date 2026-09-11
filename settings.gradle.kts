@@ -36,3 +36,4 @@ include(":feature:details")
 
 // Feature modules
 include(":feature:home")
+include(":core:database")

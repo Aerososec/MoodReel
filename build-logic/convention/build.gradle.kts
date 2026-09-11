@@ -22,6 +22,7 @@ dependencies {
     compileOnly(libs.hilt.gradlePlugin)
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.detekt.gradlePlugin)
+    compileOnly(libs.room.gradlePlugin)
 }
 
 gradlePlugin {
@@ -49,6 +50,10 @@ gradlePlugin {
         register("detekt") {
             id = "moodreel.detekt"
             implementationClass = "DetektConventionPlugin"
+        }
+        register("androidRoom") {
+            id = "moodreel.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
         }
     }
 }
