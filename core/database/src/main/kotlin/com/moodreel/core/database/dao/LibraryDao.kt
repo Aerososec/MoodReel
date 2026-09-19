@@ -9,7 +9,7 @@ import com.moodreel.core.model.MediaType
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-internal interface LibraryDao {
+interface LibraryDao {
     @Query("SELECT * FROM library_items WHERE status =:status ORDER BY added_at DESC")
     fun observeStatus(status: LibraryStatus): Flow<List<LibraryItemEntity>>
 

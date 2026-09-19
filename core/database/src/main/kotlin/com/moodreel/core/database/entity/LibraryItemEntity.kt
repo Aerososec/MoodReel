@@ -11,7 +11,7 @@ import com.moodreel.core.model.MediaType
     primaryKeys = ["media_id", "media_type"],
     indices = [Index(value = ["status", "added_at"])]
 )
-internal data class LibraryItemEntity(
+data class LibraryItemEntity(
     @ColumnInfo("media_id") val mediaId: Int,
     @ColumnInfo("media_type") val mediaType: MediaType,
     @ColumnInfo("title") val title: String,
