@@ -20,16 +20,16 @@ class LibraryRepositoryImpl @Inject constructor(private val libraryDao: LibraryD
     override fun observeStatus(
         mediaId: Int,
         mediaType: MediaType
-    ): Flow<LibraryItem?> {
+    ): Flow<LibraryStatus?> {
         return libraryDao.observeItem(mediaId, mediaType)
-            .map { item -> item?.toDomain() }
+            .map { item -> item?.status }
     }
 
-    override fun save(item: LibraryItem) {
+    override suspend fun save(item: LibraryItem) {
         libraryDao.upsert(item.toEntity())
     }
 
-    override fun delete(mediaId: Int, mediaType: MediaType) {
+    override suspend fun delete(mediaId: Int, mediaType: MediaType) {
         libraryDao.delete(mediaId, mediaType)
     }
 }

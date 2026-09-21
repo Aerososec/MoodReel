@@ -13,11 +13,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontStyle
 import coil3.compose.AsyncImage
 import com.moodreel.core.designsystem.theme.MoodReelTheme
+import com.moodreel.core.model.LibraryStatus
 import com.moodreel.core.model.MovieDetails
 
 @Composable
 internal fun DetailsBody(
     details: MovieDetails,
+    libraryStatus: LibraryStatus?,
+    onStatusSelected: (LibraryStatus) -> Unit,
+    onRemoveFromLibrary: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -27,8 +31,7 @@ internal fun DetailsBody(
             model = details.backdropUrl ?: details.posterUrl,
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
         )
 
         Column(
@@ -60,25 +63,36 @@ internal fun DetailsBody(
 
             MetaRow(details = details)
 
-            if (details.genres.isNotEmpty()) {
-                GenreRow(genres = details.genres)
-            }
+            LibraryStatusSelector(
+                currentStatus = libraryStatus,
+                onStatusSelected = onStatusSelected,
+                onRemove = onRemoveFromLibrary
+            )
 
-            if (details.overview.isNotBlank()) {
-                Text(
-                    text = details.overview,
-                    style = MoodReelTheme.typography.bodyLarge,
-                    color = MoodReelTheme.colors.onSurface,
-                )
-            }
-
-            if (details.productionCountries.isNotEmpty()) {
-                Text(
-                    text = details.productionCountries.joinToString(),
-                    style = MoodReelTheme.typography.bodySmall,
-                    color = MoodReelTheme.colors.onSurfaceVariant,
-                )
-            }
+            AdditionalInformation(details)
         }
+    }
+}
+
+@Composable
+fun AdditionalInformation(details: MovieDetails) {
+    if (details.genres.isNotEmpty()) {
+        GenreRow(genres = details.genres)
+    }
+
+    if (details.overview.isNotBlank()) {
+        Text(
+            text = details.overview,
+            style = MoodReelTheme.typography.bodyLarge,
+            color = MoodReelTheme.colors.onSurface,
+        )
+    }
+
+    if (details.productionCountries.isNotEmpty()) {
+        Text(
+            text = details.productionCountries.joinToString(),
+            style = MoodReelTheme.typography.bodySmall,
+            color = MoodReelTheme.colors.onSurfaceVariant,
+        )
     }
 }

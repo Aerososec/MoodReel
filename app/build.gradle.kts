@@ -82,4 +82,5 @@ dependencies {
     implementation(project(":data:tmdb"))
     implementation(project(":feature:search"))
     implementation(project(":feature:details"))
+    implementation(project(":data:library"))
 }

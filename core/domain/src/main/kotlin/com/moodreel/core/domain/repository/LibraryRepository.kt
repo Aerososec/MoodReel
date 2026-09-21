@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.Flow
 interface LibraryRepository {
     fun observeByStatus(status: LibraryStatus): Flow<List<LibraryItem>>
 
-    fun observeStatus(mediaId: Int, mediaType: MediaType): Flow<LibraryItem?>
+    fun observeStatus(mediaId: Int, mediaType: MediaType): Flow<LibraryStatus?>
 
-    fun save(item: LibraryItem)
+    suspend fun save(item: LibraryItem)
 
-    fun delete(mediaId: Int, mediaType: MediaType)
+    suspend fun delete(mediaId: Int, mediaType: MediaType)
 }

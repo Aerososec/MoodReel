@@ -17,8 +17,8 @@ interface LibraryDao {
     fun observeItem(mediaId: Int, mediaType: MediaType): Flow<LibraryItemEntity?>
 
     @Upsert
-    fun upsert(item: LibraryItemEntity)
+    suspend fun upsert(item: LibraryItemEntity)
 
     @Query("DELETE FROM library_items WHERE media_id = :mediaId AND media_type = :mediaType")
-    fun delete(mediaId: Int, mediaType: MediaType)
+    suspend fun delete(mediaId: Int, mediaType: MediaType)
 }

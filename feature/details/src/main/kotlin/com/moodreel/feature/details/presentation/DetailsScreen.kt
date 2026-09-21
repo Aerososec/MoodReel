@@ -25,6 +25,10 @@ fun DetailsScreen(
         DetailsContent(
             state = uiState,
             onRetry = { viewModel.handleIntent(DetailsIntent.RetryClicked) },
+            onStatusSelected = { status ->
+                viewModel.handleIntent(DetailsIntent.LibraryStatusSelected(status))
+            },
+            onRemoveFromLibrary = { viewModel.handleIntent(DetailsIntent.RemoveFromLibraryClicked) },
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
