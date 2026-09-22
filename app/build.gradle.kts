@@ -83,4 +83,5 @@ dependencies {
     implementation(project(":feature:search"))
     implementation(project(":feature:details"))
     implementation(project(":data:library"))
+    implementation(project(":feature:library"))
 }
