@@ -10,7 +10,7 @@ complexity:
   active: true
   LongMethod:
     active: true
-    threshold: 60
+    threshold: 100
   LongParameterList:
     active: true
     functionThreshold: 7

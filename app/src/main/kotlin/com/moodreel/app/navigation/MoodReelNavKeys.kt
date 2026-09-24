@@ -5,6 +5,9 @@ import com.moodreel.core.model.MediaType
 import kotlinx.serialization.Serializable
 
 @Serializable
+data object LibraryKey : NavKey
+
+@Serializable
 data object SearchKey : NavKey
 
 @Serializable
